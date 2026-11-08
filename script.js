@@ -1,4 +1,3 @@
-
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
@@ -141,7 +140,6 @@ function drawBackground() {
     ctx.fillStyle = "#F8F6F0";
     ctx.fillRect(0, 0, width, height);
 
-    // Subtle decorative floor line
     ctx.strokeStyle = "rgba(36,35,33,0.05)";
     ctx.lineWidth = 1;
 
@@ -168,7 +166,6 @@ function drawBricks() {
 
         ctx.fill();
 
-        // Subtle top highlight
         ctx.fillStyle = "rgba(255,255,255,0.3)";
         ctx.fillRect(
             brick.x + 5,
@@ -252,7 +249,6 @@ function moveBall() {
     ball.x += ball.dx;
     ball.y += ball.dy;
 
-    // Wall collision
     if (ball.x + ball.radius >= width) {
         ball.x = width - ball.radius;
         ball.dx = -Math.abs(ball.dx);
@@ -268,7 +264,6 @@ function moveBall() {
         ball.dy = Math.abs(ball.dy);
     }
 
-    // Paddle collision
     if (
         ball.dy > 0 &&
         ball.y + ball.radius >= paddle.y &&
@@ -288,7 +283,6 @@ function moveBall() {
         ball.y = paddle.y - ball.radius;
     }
 
-    // Missed ball
     if (ball.y - ball.radius > height) {
         lives--;
 
@@ -309,7 +303,6 @@ function moveBall() {
         return;
     }
 
-    // Brick collision
     for (const brick of bricks) {
         if (!brick.alive) continue;
 
@@ -321,7 +314,6 @@ function moveBall() {
         ) {
             brick.alive = false;
 
-            // Resolve collision based on the nearest brick edge
             const overlapLeft = ball.x + ball.radius - brick.x;
             const overlapRight = brick.x + brick.width - (ball.x - ball.radius);
             const overlapTop = ball.y + ball.radius - brick.y;
@@ -347,7 +339,6 @@ function moveBall() {
         }
     }
 
-    // Level cleared
     if (bricks.every(brick => !brick.alive)) {
         nextLevel();
     }
@@ -367,7 +358,6 @@ window.addEventListener("keydown", event => {
     }
 
     if (key === " " && gameState === "playing") {
-        // Space can be used for future pause functionality.
     }
 });
 
@@ -390,7 +380,6 @@ function movePaddle() {
     );
 }
 
-// Mouse controls
 canvas.addEventListener("mousemove", event => {
     if (gameState !== "playing") return;
 
@@ -401,7 +390,6 @@ canvas.addEventListener("mousemove", event => {
     );
 });
 
-// Touch controls
 canvas.addEventListener("touchmove", event => {
     event.preventDefault();
 
