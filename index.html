@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRICKBREAKER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hud">
+        <div class="hud-item">
+            <span class="hud-label">SCORE</span>
+            <span id="score">0000</span>
+        </div>
+
+        <div class="hud-item level-info">
+            <span class="hud-label">LEVEL</span>
+            <span id="level">01 / 05</span>
+        </div>
+
+        <div class="hud-item lives-info">
+            <span class="hud-label">LIVES</span>
+            <span id="lives">● ● ●</span>
+        </div>
+    </header>
+
+    <canvas id="game"></canvas>
+
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <p class="eyebrow">Gokul</p>
+            <h1 id="overlay-title">BRICKBREAKER<span>.</span></h1>
+            <p id="overlay-message">Break all the brickss!!!</p>
+            <button id="start-button">START GAME <span></span></button>
+            <p class="controls">MOVE WITH MOUSEE</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

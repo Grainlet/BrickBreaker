@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #F8F6F0;
+    --dark: #242321;
+    --muted: #99958C;
+    --pink: #E9B9C5;
+    --purple: #C9BCE5;
+    --blue: #B8D1E5;
+    --mint: #BBD9C8;
+    --peach: #F0C7A9;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    color: var(--dark);
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hud {
+    position: absolute;
+    top: 26px;
+    left: 0;
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hud-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hud-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+#score, #level, #lives {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#lives {
+    color: #D58FA0;
+    font-size: 14px;
+}
+
+.level-info {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(248, 246, 240, 0.72);
+    backdrop-filter: blur(3px);
+    text-align: center;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.overlay-content {
+    padding: 30px;
+    max-width: 550px;
+    width: 100%;
+}
+
+.eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 68px);
+    font-weight: 600;
+    letter-spacing: -3px;
+    line-height: 1;
+}
+
+h1 span {
+    color: #D58FA0;
+}
+
+#overlay-message {
+    margin-top: 18px;
+    font-size: 15px;
+    color: #88847C;
+    font-weight: 300;
+}
+
+#start-button {
+    margin-top: 38px;
+    padding: 16px 32px;
+    background: var(--dark);
+    color: white;
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#start-button:hover {
+    background: #55514A;
+    transform: translateY(-3px);
+}
+
+#start-button span {
+    margin-left: 15px;
+}
+
+.controls {
+    margin-top: 25px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #AAA59B;
+}
+
+@media (max-width: 600px) {
+    .hud {
+        top: 18px;
+        padding: 0 20px;
+    }
+
+    #score, #level, #lives {
+        font-size: 14px;
+    }
+
+    .overlay-content {
+        padding: 20px;
+    }
+}
